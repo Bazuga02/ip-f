@@ -31,8 +31,8 @@ const Register = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen ">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
-        <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
+      <div className="bg-yellow-500 p-8 rounded-sm shadow-md w-full max-w-sm">
+        <h2 className="text-2xl font-merienda font-bold mb-4 text-center text-gray-800">
           Register
         </h2>
         {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
@@ -43,7 +43,7 @@ const Register = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 bg-neutral-900 text-white rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input
             type="email"
@@ -51,7 +51,7 @@ const Register = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 bg-neutral-900 text-white rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input
             type="password"
@@ -59,11 +59,11 @@ const Register = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 bg-neutral-900 text-white rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             type="submit"
-            className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="w-full py-2 border-2 border-black text-black font-bold hover:bg-neutral-900 hover:scale-95 transition-all duration-150 hover:text-yellow-500"
           >
             Register
           </button>

@@ -5,4 +5,13 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  theme: {
+    extend: {
+      fontFamily: {
+        merienda: ['"Merienda"', "cursive"],
+      },
+    },
+  },
+  variants: {},
+  plugins: [],
 };

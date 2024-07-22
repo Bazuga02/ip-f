@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap");
+
+.font-merienda-300 {
+  font-family: "Merienda", cursive;
+  font-weight: 300;
+}
+
+.font-merienda-400 {
+  font-family: "Merienda", cursive;
+  font-weight: 400;
+}
+
+.font-merienda-500 {
+  font-family: "Merienda", cursive;
+  font-weight: 500;
+}
+
+.font-merienda-600 {
+  font-family: "Merienda", cursive;
+  font-weight: 600;
+}
+
+.font-merienda-700 {
+  font-family: "Merienda", cursive;
+  font-weight: 700;
+}
+
+.font-merienda-800 {
+  font-family: "Merienda", cursive;
+  font-weight: 800;
+}
+
+.font-merienda-900 {
+  font-family: "Merienda", cursive;
+  font-weight: 900;
+  word-spacing: 5px;
+  letter-spacing: 0.1px;
+}

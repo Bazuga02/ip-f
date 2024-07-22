@@ -76,10 +76,10 @@ const Dashboard = () => {
   if (error) return <div className="text-center text-red-500">{error}</div>;
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gray-800 text-gray-300 min-h-screen">
-      <h2 className="text-3xl font-bold mb-4">Welcome, {user.name}!</h2>
-      <div className="bg-gray-900 p-6 rounded-lg shadow-lg mb-6">
-        <h3 className="text-2xl font-semibold mb-4 text-center">
+    <div className="max-w-4xl mx-auto p-6 bg-yellow-500 text-gray-300 min-h-screen">
+      <h2 className="text-3xl font-bold mb-4 text-black">Welcome, {user.name}!</h2>
+      <div className="bg-neutral-900 p-6 rounded-lg shadow-lg mb-6">
+        <h3 className="text-2xl text-yellow-500 font-merienda font-semibold mb-4 text-center">
           Your Profile
         </h3>
         <form onSubmit={handleProfileUpdate} className="space-y-4">
@@ -106,53 +106,53 @@ const Dashboard = () => {
             )}
           </div>
           <div className="flex items-center space-x-4">
-            <label className="w-32 text-right">Name:</label>
+            <label className="w-32 text-right font-bold text-yellow-500 font-merienda">Name:</label>
             <input
               type="text"
               value={user.name}
               onChange={(e) => setUser({ ...user, name: e.target.value })}
               placeholder="Name"
-              className="flex-1 p-3 border border-gray-600 rounded-lg bg-gray-700 text-gray-300"
+              className="flex-1 p-3  rounded-sm bg-neutral-700 text-gray-300"
             />
           </div>
           <div className="flex items-center space-x-4">
-            <label className="w-32 text-right">Age:</label>
+            <label className="w-32 text-right font-bold text-yellow-500 font-merienda">Age:</label>
             <input
               type="number"
               value={user.age || ""}
               onChange={(e) => setUser({ ...user, age: e.target.value })}
               placeholder="Age"
-              className="flex-1 p-3 border border-gray-600 rounded-lg bg-gray-700 text-gray-300"
+              className="flex-1 p-3  rounded-sm bg-neutral-700 text-gray-300"
             />
           </div>
           <div className="flex items-center space-x-4">
-            <label className="w-32 text-right">DOB:</label>
+            <label className="w-32 text-right font-bold text-yellow-500 font-merienda">DOB:</label>
             <input
               type="date"
               value={user.dateOfBirth || ""}
               onChange={(e) =>
                 setUser({ ...user, dateOfBirth: e.target.value })
               }
-              className="flex-1 p-3 border border-gray-600 rounded-lg bg-gray-700 text-gray-300"
+              className="flex-1 p-3 bg-neutral-700 rounded-sm text-gray-300"
             />
           </div>
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-blue-500 w-[50%] text-white py-2 px-6 rounded-lg hover:bg-blue-600"
+              className=" bg-yellow-500 text-black font-bold py-2 px-4 rounded hover:bg-neutral-900 border-2  border-yellow-500 hover:text-yellow-500 transition-all duration-150  w-[50%]"
             >
               Update Profile
             </button>
           </div>
         </form>
       </div>
-      <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
-        <h3 className="text-2xl font-semibold mb-4">Applied Opportunities</h3>
+      <div className="bg-neutral-900 p-6 rounded-lg shadow-lg">
+        <h3 className="text-2xl font-semibold mb-4 font-merienda text-yellow-500">Applied Opportunities</h3>
         {appliedOpportunities.length > 0 ? (
           appliedOpportunities.map((opportunity) => (
             <div
               key={opportunity.id}
-              className="bg-gray-800 p-4 mb-4 rounded-lg shadow-md"
+              className=" bg-neutral-700 p-4 mb-4 rounded-lg shadow-md"
             >
               <h4 className="text-xl font-semibold mb-2">
                 {opportunity.profileName}

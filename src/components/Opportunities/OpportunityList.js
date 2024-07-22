@@ -55,7 +55,7 @@ const OpportunityList = () => {
 
   return (
     <div className="p-4 bg-neutral-900 min-h-screen">
-      <h2 className="text-5xl underline font-bold text-white mb-6 text-center">
+      <h2 className="text-5xl underline font-bold font-merienda text-yellow-500 mb-6 text-center">
         Internship Opportunities
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -77,9 +77,9 @@ const OpportunityList = () => {
               onClick={() => handlePageChange(pageNumber + 1)}
               className={`px-4 py-2 rounded-lg ${
                 currentPage === pageNumber + 1
-                  ? "bg-blue-500 text-white"
+                  ? "bg-yellow-500 text-white"
                   : "bg-gray-700 text-gray-300"
-              } hover:bg-blue-600`}
+              } hover:bg-yellow-700`}
             >
               {pageNumber + 1}
             </button>

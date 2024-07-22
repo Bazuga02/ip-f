@@ -45,7 +45,7 @@ const OpportunityCard = ({ opportunity }) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 text-gray-600 flex flex-col">
+    <div className=" bg-yellow-400 p-4  rounded-sm shadow-lg  text-black flex flex-col">
       <h3 className="text-2xl font-bold mb-2 text-center font-serif">
         {opportunity.profileName}
       </h3>
@@ -63,7 +63,7 @@ const OpportunityCard = ({ opportunity }) => {
       <div className="flex justify-center">
         <button
           onClick={handleApply}
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-[50%]"
+          className=" bg-neutral-900 text-yellow-500 font-bold py-2 px-4 rounded hover:bg-yellow-400 hover:scale-95 border-2 border-black  hover:text-black transition-all duration-100  w-[50%]"
         >
           {isLoggedIn ? "Apply" : "Login to Apply"}
         </button>

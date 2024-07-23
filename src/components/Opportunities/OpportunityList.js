@@ -55,7 +55,7 @@ const OpportunityList = () => {
 
   return (
     <div className="p-4 bg-neutral-900 min-h-screen">
-      <h2 className="text-5xl underline font-bold font-merienda text-yellow-500 mb-6 text-center">
+      <h2 className="text-5xl underline font-bold font-merienda text-yellow-300 mb-6 text-center">
         Internship Opportunities
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

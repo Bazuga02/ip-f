@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 
 const API_URL = "https://ip-b.onrender.com/api";
 const DEFAULT_IMAGE_URL =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s";
+  "https://img.icons8.com/?size=100&id=4kuCnjaqo47m&format=png&color=FAB005";
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -12,6 +12,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [isEditingImage, setIsEditingImage] = useState(false);
+  const [isEditingProfile, setIsEditingProfile] = useState(false);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -65,7 +66,7 @@ const Dashboard = () => {
 
       setUser(updatedUser);
       toast.success("Profile updated successfully");
-      setIsEditingImage(false);
+      setIsEditingProfile(false);
     } catch (err) {
       toast.error("Error updating profile");
     }
@@ -76,26 +77,84 @@ const Dashboard = () => {
   if (error) return <div className="text-center text-red-500">{error}</div>;
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-yellow-500 text-gray-300 min-h-screen">
+    <div className="max-w-4xl mx-auto p-6 bg-yellow-200 text-gray-300 min-h-screen">
       <h2 className="text-3xl font-bold mb-4 text-black">Welcome, {user.name}!</h2>
+      
       <div className="bg-neutral-900 p-6 rounded-lg shadow-lg mb-6">
         <h3 className="text-2xl text-yellow-500 font-merienda font-semibold mb-4 text-center">
           Your Profile
         </h3>
-        <form onSubmit={handleProfileUpdate} className="space-y-4">
-          <div className="flex flex-col items-center">
-            {isEditingImage ? (
+
+        {isEditingProfile ? (
+          <form onSubmit={handleProfileUpdate} className="space-y-4">
+            <div className="flex flex-col items-center">
+              {isEditingImage ? (
+                <input
+                  type="text"
+                  value={user.image || ""}
+                  onChange={(e) => setUser({ ...user, image: e.target.value })}
+                  placeholder="Image URL"
+                  className="w-full p-3 border border-gray-600 rounded-lg bg-gray-700 text-gray-300"
+                />
+              ) : (
+                <div
+                  className="w-24 h-24 bg-gray-700 rounded-full overflow-hidden cursor-pointer"
+                  onClick={() => setIsEditingImage(true)}
+                >
+                  <img
+                    src={user.image || DEFAULT_IMAGE_URL}
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+            </div>
+            <div className="flex items-center space-x-4">
+              <label className="w-32 text-right font-bold text-yellow-500 font-merienda">Name:</label>
               <input
                 type="text"
-                value={user.image || ""}
-                onChange={(e) => setUser({ ...user, image: e.target.value })}
-                placeholder="Image URL"
-                className="w-full p-3 border border-gray-600 rounded-lg bg-gray-700 text-gray-300"
+                value={user.name}
+                onChange={(e) => setUser({ ...user, name: e.target.value })}
+                placeholder="Name"
+                className="flex-1 p-3  rounded-sm bg-neutral-700 text-gray-300"
               />
-            ) : (
+            </div>
+            <div className="flex items-center space-x-4">
+              <label className="w-32 text-right font-bold text-yellow-500 font-merienda">Age:</label>
+              <input
+                type="number"
+                value={user.age || ""}
+                onChange={(e) => setUser({ ...user, age: e.target.value })}
+                placeholder="Age"
+                className="flex-1 p-3  rounded-sm bg-neutral-700 text-gray-300"
+              />
+            </div>
+            <div className="flex items-center space-x-4">
+              <label className="w-32 text-right font-bold text-yellow-500 font-merienda">DOB:</label>
+              <input
+                type="date"
+                value={user.dateOfBirth || ""}
+                onChange={(e) =>
+                  setUser({ ...user, dateOfBirth: e.target.value })
+                }
+                className="flex-1 p-3 bg-neutral-700 rounded-sm text-gray-300"
+              />
+            </div>
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="bg-yellow-500 text-black font-bold py-2 px-4 rounded hover:bg-neutral-900 border-2 border-yellow-500 hover:text-yellow-500 transition-all duration-150 w-[50%]"
+              >
+                Save Changes
+              </button>
+            </div>
+          </form>
+        ) : (
+          <div>
+            <div className="flex items-center justify-center mb-4">
               <div
                 className="w-24 h-24 bg-gray-700 rounded-full overflow-hidden cursor-pointer"
-                onClick={() => setIsEditingImage(true)}
+                onClick={() => setIsEditingProfile(true)}
               >
                 <img
                   src={user.image || DEFAULT_IMAGE_URL}
@@ -103,56 +162,38 @@ const Dashboard = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-            )}
+            </div>
+            <div className="flex items-center space-x-4 mb-4">
+              <span className="w-32 text-right font-bold text-yellow-500 font-merienda">Name:</span>
+              <span className="flex-1">{user.name}</span>
+            </div>
+            <div className="flex items-center space-x-4 mb-4">
+              <span className="w-32 text-right font-bold text-yellow-500 font-merienda">Age:</span>
+              <span className="flex-1">{user.age}</span>
+            </div>
+            <div className="flex items-center space-x-4 mb-4">
+              <span className="w-32 text-right font-bold text-yellow-500 font-merienda">DOB:</span>
+              <span className="flex-1">{user.dateOfBirth}</span>
+            </div>
+            <div className="flex justify-center">
+              <button
+                onClick={() => setIsEditingProfile(true)}
+                className="bg-yellow-500 text-black font-bold py-2 px-4 rounded hover:bg-neutral-900 border-2 border-yellow-500 hover:text-yellow-500 transition-all duration-150 w-[50%]"
+              >
+                Update Profile
+              </button>
+            </div>
           </div>
-          <div className="flex items-center space-x-4">
-            <label className="w-32 text-right font-bold text-yellow-500 font-merienda">Name:</label>
-            <input
-              type="text"
-              value={user.name}
-              onChange={(e) => setUser({ ...user, name: e.target.value })}
-              placeholder="Name"
-              className="flex-1 p-3  rounded-sm bg-neutral-700 text-gray-300"
-            />
-          </div>
-          <div className="flex items-center space-x-4">
-            <label className="w-32 text-right font-bold text-yellow-500 font-merienda">Age:</label>
-            <input
-              type="number"
-              value={user.age || ""}
-              onChange={(e) => setUser({ ...user, age: e.target.value })}
-              placeholder="Age"
-              className="flex-1 p-3  rounded-sm bg-neutral-700 text-gray-300"
-            />
-          </div>
-          <div className="flex items-center space-x-4">
-            <label className="w-32 text-right font-bold text-yellow-500 font-merienda">DOB:</label>
-            <input
-              type="date"
-              value={user.dateOfBirth || ""}
-              onChange={(e) =>
-                setUser({ ...user, dateOfBirth: e.target.value })
-              }
-              className="flex-1 p-3 bg-neutral-700 rounded-sm text-gray-300"
-            />
-          </div>
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className=" bg-yellow-500 text-black font-bold py-2 px-4 rounded hover:bg-neutral-900 border-2  border-yellow-500 hover:text-yellow-500 transition-all duration-150  w-[50%]"
-            >
-              Update Profile
-            </button>
-          </div>
-        </form>
+        )}
       </div>
+      
       <div className="bg-neutral-900 p-6 rounded-lg shadow-lg">
         <h3 className="text-2xl font-semibold mb-4 font-merienda text-yellow-500">Applied Opportunities</h3>
         {appliedOpportunities.length > 0 ? (
           appliedOpportunities.map((opportunity) => (
             <div
               key={opportunity.id}
-              className=" bg-neutral-700 p-4 mb-4 rounded-lg shadow-md"
+              className="bg-neutral-700 p-4 mb-4 rounded-lg shadow-md"
             >
               <h4 className="text-xl font-semibold mb-2">
                 {opportunity.profileName}

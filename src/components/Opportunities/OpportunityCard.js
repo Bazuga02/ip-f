@@ -22,7 +22,7 @@ const OpportunityCard = ({ opportunity }) => {
         toast.error(error.response.data.message);
       } else {
         console.error("Application error:", error);
-        toast.error("An error occurred while applying to the opportunity");
+        toast.error("An error occurred while applying to the opportunity! Try Again");
       }
     }
   };
@@ -45,7 +45,7 @@ const OpportunityCard = ({ opportunity }) => {
   };
 
   return (
-    <div className=" bg-yellow-400 p-4  rounded-sm shadow-lg  text-black flex flex-col">
+    <div className=" bg-yellow-100 p-4  rounded-sm shadow-lg  text-black flex flex-col">
       <h3 className="text-2xl font-bold mb-2 text-center font-serif">
         {opportunity.profileName}
       </h3>

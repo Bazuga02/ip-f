@@ -24,10 +24,16 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen ">
-      <div className=" bg-yellow-500 p-8 rounded-sm shadow-md w-full max-w-sm">
-        <h2 className="text-2xl font-merienda font-bold mb-4 text-center  text-gray-800">
-          LOGIN
-        </h2>
+      <div className=" bg-yellow-200 p-8 rounded-sm shadow-md w-full max-w-sm">
+        <div className=" flex items-center justify-center gap-2 mb-2">
+          <img
+            src="https://img.icons8.com/?size=100&id=42351&format=png&color=FAB005"
+            alt="logo"
+          />
+          <h2 className="text-2xl font-merienda font-bold mb-4 text-center  text-gray-800">
+            LOGIN
+          </h2>
+        </div>
         {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <input

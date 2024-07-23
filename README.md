@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+# Job Application Portal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**[Deployed Project](https://intern-portal-abhi.netlify.app/)**
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+This project is a Job Application Portal that allows users to register, login, and apply for job opportunities. Users can view and update their profile, and see a list of job opportunities with options to apply for them. It features user authentication, profile management, and job application functionalities.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User Authentication**: Secure login and registration system.
+- **Profile Management**: View and update user profiles, including profile picture, name, age, and date of birth.
+- **Job Opportunities**: Browse through job opportunities, with details including company name, stipend, location, duration, and start date.
+- **Apply to Opportunities**: Apply for job opportunities if logged in.
+- **Responsive Design**: Optimized for various screen sizes.
+- **Notifications**: Informative messages for user actions and errors.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- **Frontend**:
+  - React
+  - React Router DOM
+  - Axios
+  - React Hot Toast
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Backend**:
+  - Node.js
+  - Express
+  - MongoDB
+    
+- **Styling**:
+  - Tailwind CSS
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the frontend repository:
+    ```bash
+    git clone https://github.com/Bazuga02/ip-f.git
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Navigate into the frontend project directory:
+    ```bash
+    cd ip-f
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install frontend dependencies:
+    ```bash
+    npm install
+    ```
 
-### `npm run eject`
+4. Start the development server:
+    ```bash
+    npm start
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. Clone the backend repository:
+    ```bash
+    git clone https://github.com/Bazuga02/ip-b.git
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+6. Navigate into the backend project directory:
+    ```bash
+    cd ip-b
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+7. Install backend dependencies:
+    ```bash
+    npm install
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+8. Start the backend server:
+    ```bash
+    npm start
+    ```
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Login**: Navigate to `/login` to access the login page.
+- **Register**: Navigate to `/register` to create a new account.
+- **Dashboard**: Navigate to `/dashboard` to view and update your profile and see applied opportunities.
+- **Opportunities**: Browse opportunities and apply directly if logged in.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## API Endpoints
 
-### Code Splitting
+- **POST** `/api/auth/login`: Log in a user.
+- **POST** `/api/auth/register`: Register a new user.
+- **GET** `/api/users/profile`: Get user profile data.
+- **PUT** `/api/users/profile`: Update user profile data.
+- **GET** `/api/users/applied-opportunities`: Get a list of applied job opportunities.
+- **POST** `/api/opportunities/apply/:id`: Apply for a job opportunity.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contributing
 
-### Analyzing the Bundle Size
+Feel free to fork the repository and submit pull requests. Contributions are always welcome!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
